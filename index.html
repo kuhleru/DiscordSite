@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Server</title>
-    <!-- Einbindung der modernen Inter-Schriftart von Google Fonts -->
+    <title>Join My Discord | Connect Now</title>
+    <!-- Modern Inter font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* CSS-Variablen für einfache Anpassung der Farben */
+        /* CSS Variables for easy color customization */
         :root {
-            --bg-gradient-start: #1a1a2e; /* Dunkler Startpunkt des Hintergrundverlaufs */
-            --bg-gradient-end: #0f0f1c;   /* Noch dunklerer Endpunkt */
-            --container-bg: rgba(42, 42, 74, 0.7); /* Leicht transparenter Container-Hintergrund */
-            --text-color: #e0e0e0;        /* Helle Textfarbe */
-            --heading-color: #ffffff;     /* Weiße Überschrift */
-            --discord-blue: #7289da;      /* Offizielles Discord-Blau */
-            --discord-blue-hover: #677bc4; /* Dunkleres Discord-Blau beim Hover */
-            --shadow-color: rgba(0, 0, 0, 0.4); /* Schattenfarbe */
-            --border-color: rgba(255, 255, 255, 0.1); /* Dezente Rahmenfarbe */
+            --bg-gradient-start: #1a1a2e; /* Dark start of background gradient */
+            --bg-gradient-end: #0f0f1c;   /* Even darker end */
+            --container-bg: rgba(42, 42, 74, 0.8); /* Slightly more opaque container background */
+            --text-color: #e0e0e0;        /* Light text color */
+            --heading-color: #ffffff;     /* White heading */
+            --discord-blue: #7289da;      /* Official Discord Blue */
+            --discord-blue-hover: #677bc4; /* Darker Discord Blue on hover */
+            --shadow-color: rgba(0, 0, 0, 0.5); /* Deeper shadow color */
+            --border-color: rgba(255, 255, 255, 0.15); /* Slightly more visible border */
+
+            /* New variables for heading gradient */
+            --heading-gradient-start: #8a2be2; /* BlueViolet */
+            --heading-gradient-end: #00ffff;   /* Cyan */
         }
 
         body {
@@ -26,44 +30,44 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* Animierter Hintergrundverlauf */
+            /* Animated background gradient */
             background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-            background-size: 200% 200%; /* Größer als der Viewport für die Animation */
-            animation: backgroundPan 15s ease infinite alternate; /* Langsame Schwenk-Animation */
+            background-size: 200% 200%; /* Larger than viewport for animation */
+            animation: backgroundPan 25s ease infinite alternate; /* Slower, smoother pan animation */
             font-family: 'Inter', sans-serif;
             color: var(--text-color);
             text-align: center;
-            overflow: hidden; /* Verhindert Scrollbalken durch Animationen */
+            overflow: hidden; /* Prevents scrollbars from animations */
             position: relative;
         }
 
-        /* Keyframe-Animation für den Hintergrundverlauf */
+        /* Keyframe animation for background pan */
         @keyframes backgroundPan {
             0% { background-position: 0% 0%; }
             100% { background-position: 100% 100%; }
         }
 
-        /* Container für den Hauptinhalt */
+        /* Container for main content */
         .container {
-            max-width: 650px;
+            max-width: 600px; /* Slightly narrower for a more focused look */
             padding: 50px;
             background-color: var(--container-bg);
             border-radius: 25px;
-            box-shadow: 0 20px 60px var(--shadow-color); /* Tieferer Schatten */
-            backdrop-filter: blur(10px); /* Glas-Effekt */
-            border: 1px solid var(--border-color); /* Dezenter Rahmen */
+            box-shadow: 0 25px 70px var(--shadow-color); /* Deeper, more prominent shadow */
+            backdrop-filter: blur(15px); /* Stronger glass effect */
+            border: 1px solid var(--border-color); /* Subtle border */
             transform: translateY(0);
-            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.8s ease;
-            opacity: 0; /* Startzustand für die Fade-In-Animation */
-            animation: fadeInScaleUp 1.2s forwards ease-out; /* Animation beim Laden */
-            animation-delay: 0.3s; /* Verzögerung für den Start */
+            transition: transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.9s ease; /* Smoother transition */
+            opacity: 0; /* Start state for fade-in animation */
+            animation: fadeInScaleUp 1.4s forwards cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother load animation */
+            animation-delay: 0.2s; /* Slightly earlier start */
         }
 
-        /* Keyframe-Animation für das Einblenden und Hochskalieren des Containers */
+        /* Keyframe animation for container fade-in and scale-up */
         @keyframes fadeInScaleUp {
             from {
                 opacity: 0;
-                transform: translateY(30px) scale(0.9);
+                transform: translateY(40px) scale(0.92);
             }
             to {
                 opacity: 1;
@@ -71,221 +75,206 @@
             }
         }
 
-        /* Überschrift */
+        /* Heading */
         h1 {
-            font-size: 3.8em; /* Große, auffällige Überschrift */
-            margin-bottom: 20px;
-            color: var(--heading-color);
-            font-weight: 900; /* Extra fett */
-            letter-spacing: -1.5px;
-            overflow: hidden; /* Wichtig für den Typewriter-Effekt */
-            white-space: nowrap; /* Text in einer Zeile halten */
-            border-right: 3px solid transparent; /* Cursor-Effekt */
-            animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
-            animation-delay: 1.5s; /* Startet nach dem Container */
-            width: 0; /* Startbreite für den Typewriter-Effekt */
-            margin-left: auto; /* Zentrierung für den Typewriter-Effekt */
-            margin-right: auto; /* Zentrierung für den Typewriter-Effekt */
+            font-size: 3.8em; /* Large, impactful heading */
+            margin-bottom: 45px; /* Adjusted margin since paragraph is removed */
+            font-weight: 900; /* Extra bold */
+            letter-spacing: -2px; /* Tighter letter spacing */
+            text-align: center;
+
+            /* Creative Text Styling: Gradient and Flowing Effect */
+            background: linear-gradient(90deg, var(--heading-gradient-start), var(--heading-gradient-end), var(--heading-gradient-start));
+            background-size: 200% auto; /* Make gradient wider than text */
+            -webkit-background-clip: text; /* Clip background to text shape */
+            background-clip: text;
+            color: transparent; /* Make text color transparent to show background */
+            animation: textGradientFlow 4s linear infinite, fadeInText 1s forwards ease-out; /* Flowing gradient + fade in */
+            animation-delay: 1.2s; /* Starts after container */
+            opacity: 0; /* Start state for fadeInText */
+            text-shadow: 0 0 15px rgba(138, 43, 226, 0.6), 0 0 30px rgba(0, 255, 255, 0.4); /* Subtle glow */
         }
 
-        /* Keyframe-Animation für den Typewriter-Effekt */
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        /* Keyframe animation for flowing text gradient */
+        @keyframes textGradientFlow {
+            0% { background-position: 0% center; }
+            100% { background-position: -200% center; } /* Flow across the text */
         }
 
-        /* Keyframe-Animation für den blinkenden Cursor */
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--heading-color); }
-        }
-
-        /* Absatztext */
-        p {
-            font-size: 1.4em;
-            line-height: 1.7;
-            margin-bottom: 50px;
-            font-weight: 300; /* Leicht */
-            opacity: 0; /* Startzustand für die Fade-In-Animation */
-            animation: fadeIn 1s forwards ease-out;
-            animation-delay: 4.5s; /* Startet nach der Überschrift */
-        }
-
-        /* Keyframe-Animation für einfaches Einblenden */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Discord-Button */
-        .discord-button {
-            display: inline-flex; /* Für Icon und Text nebeneinander */
-            align-items: center;
-            padding: 20px 45px;
-            font-size: 1.5em;
-            font-weight: 700;
-            color: var(--heading-color);
-            background-color: var(--discord-blue);
-            border: none;
-            border-radius: 15px; /* Stärker abgerundet */
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s cubic-bezier(0.3, 0.7, 0.4, 1.5), box-shadow 0.3s ease;
-            box-shadow: 0 10px 30px var(--shadow-color);
-            position: relative;
-            overflow: hidden; /* Wichtig für den Ripple-Effekt */
-            opacity: 0; /* Startzustand für die Fade-In-Animation */
-            animation: fadeInButton 1s forwards ease-out;
-            animation-delay: 5.0s; /* Startet nach dem Absatz */
-        }
-
-        /* Keyframe-Animation für das Einblenden des Buttons */
-        @keyframes fadeInButton {
+        /* Keyframe animation for text fade in */
+        @keyframes fadeInText {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hover-Effekt für den Button */
-        .discord-button:hover {
-            background-color: var(--discord-blue-hover);
-            transform: translateY(-8px) scale(1.03); /* Deutlicherer Sprung */
-            box-shadow: 0 18px 45px var(--shadow-color);
+        /* Discord Button */
+        .discord-button {
+            display: inline-flex; /* For icon and text side-by-side */
+            align-items: center;
+            padding: 20px 48px; /* Slightly more padding for a bolder look */
+            font-size: 1.6em; /* Larger font size */
+            font-weight: 700;
+            color: var(--heading-color);
+            background-color: var(--discord-blue);
+            border: none;
+            border-radius: 18px; /* More rounded corners */
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.25s cubic-bezier(0.3, 0.7, 0.4, 1.5), box-shadow 0.3s ease; /* Smoother bounce */
+            /* Added glow effect to button */
+            box-shadow: 0 0 15px rgba(114, 137, 218, 0.6), /* Subtle initial glow */
+                        0 12px 35px var(--shadow-color); /* Existing deeper shadow */
+            position: relative;
+            overflow: hidden; /* Important for ripple effect */
+            opacity: 0; /* Start state for fade-in animation */
+            /* Adjusted animation-delay for pulseButton to start after fadeInButton completes */
+            animation: fadeInButton 1s forwards ease-out, pulseButton 2s infinite 3.5s; /* Fade in and then subtle pulse */
+            animation-delay: 2.5s; /* Starts after heading animation is done */
         }
 
-        /* Active-Effekt für den Button (beim Klicken) */
+        /* Keyframe animation for button fade-in */
+        @keyframes fadeInButton {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Keyframe animation for subtle button pulse */
+        @keyframes pulseButton {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(114, 137, 218, 0.6), 0 12px 35px var(--shadow-color); }
+            50% { transform: scale(1.02); box-shadow: 0 0 25px rgba(114, 137, 218, 0.8), 0 15px 40px var(--shadow-color); } /* Stronger glow at peak */
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(114, 137, 218, 0.6), 0 12px 35px var(--shadow-color); }
+        }
+
+        /* Hover effect for button */
+        .discord-button:hover {
+            background-color: var(--discord-blue-hover);
+            transform: translateY(-10px) scale(1.04); /* More pronounced jump */
+            /* Stronger glow on hover */
+            box-shadow: 0 0 30px rgba(103, 123, 196, 0.8), /* Stronger glow on hover */
+                        0 20px 50px var(--shadow-color); /* Existing deeper shadow on hover */
+            /* Removed animation: none; to prevent unexpected behavior */
+        }
+
+        /* Active effect for button (on click) */
         .discord-button:active {
-            transform: translateY(0px) scale(0.98);
-            box-shadow: 0 5px 20px var(--shadow-color);
+            transform: translateY(0px) scale(0.97); /* Slightly more squash */
+            box-shadow: 0 6px 25px var(--shadow-color);
             background-color: var(--discord-blue);
         }
 
-        /* Icon innerhalb des Buttons */
+        /* Icon inside the button */
         .discord-button .icon {
-            margin-right: 15px;
-            font-size: 1.6em; /* Größeres Icon */
+            margin-right: 18px; /* More space for icon */
+            font-size: 1.7em; /* Larger icon */
             line-height: 1;
-            /* Optional: Leichte Animation für das Icon beim Hover */
             transition: transform 0.2s ease;
         }
 
         .discord-button:hover .icon {
-            transform: rotate(10deg); /* Icon dreht sich leicht */
+            transform: rotate(15deg); /* More pronounced icon rotation */
         }
 
-        /* Ripple-Effekt beim Klicken (wird per JS hinzugefügt) */
+        /* Ripple effect on click (added via JS) */
         .ripple {
             position: absolute;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.3); /* Farbe des Ripples */
-            animation: ripple-animation 0.6s linear forwards;
+            background-color: rgba(255, 255, 255, 0.35); /* Slightly brighter ripple */
+            animation: ripple-animation 0.7s linear forwards; /* Slightly longer ripple */
             transform: scale(0);
-            pointer-events: none; /* Sorgt dafür, dass der Ripple den Klick nicht abfängt */
+            pointer-events: none; /* Ensures ripple doesn't block click */
         }
 
-        /* Keyframe-Animation für den Ripple-Effekt */
+        /* Keyframe animation for ripple effect */
         @keyframes ripple-animation {
             to {
-                transform: scale(4); /* Skaliert den Ripple nach außen */
-                opacity: 0; /* Lässt ihn verblassen */
+                transform: scale(4.5); /* Scales ripple further out */
+                opacity: 0; /* Fades it out */
             }
         }
 
-        /* Responsivität für kleinere Bildschirme */
+        /* Responsiveness for smaller screens */
         @media (max-width: 768px) {
             .container {
-                padding: 30px 20px;
-                margin: 0 15px;
-                border-radius: 15px;
+                padding: 35px 25px;
+                margin: 0 20px;
+                border-radius: 20px;
             }
             h1 {
-                font-size: 2.5em;
-                letter-spacing: -1px;
-            }
-            p {
-                font-size: 1.1em;
-                margin-bottom: 30px;
+                font-size: 2.8em;
+                letter-spacing: -1.5px;
             }
             .discord-button {
-                padding: 15px 30px;
-                font-size: 1.2em;
-                border-radius: 10px;
+                padding: 16px 35px;
+                font-size: 1.3em;
+                border-radius: 12px;
             }
             .discord-button .icon {
-                font-size: 1.4em;
-                margin-right: 10px;
+                font-size: 1.5em;
+                margin-right: 12px;
             }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 2em;
+            .container {
+                padding: 25px 15px;
             }
-            p {
-                font-size: 0.9em;
+            h1 {
+                font-size: 2.2em;
             }
             .discord-button {
-                padding: 12px 25px;
-                font-size: 1em;
+                padding: 14px 28px;
+                font-size: 1.1em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container" id="mainContainer">
-        <!-- Überschrift mit der Kernbotschaft -->
+        <!-- Main heading with new creative design -->
         <h1 id="mainHeading">Join my Discord</h1>
-        <!-- Begleittext -->
-        <p id="subText">I need members</p>
-        <!-- Discord-Beitritts-Button -->
+        <!-- Discord join button -->
         <a href="https://discord.gg/9FDgxCzjeu" class="discord-button" target="_blank" rel="noopener noreferrer" id="discordButton">
-            <span class="icon">&#x1F517;</span> <!-- Unicode-Link-Symbol für den Button -->
+            <span class="icon">🔗</span> <!-- Unicode link icon for the button -->
             Join Here
         </a>
     </div>
 
     <script>
-        // JavaScript für interaktive Effekte
+        // JavaScript for interactive effects
 
         const discordButton = document.getElementById('discordButton');
-        const mainHeading = document.getElementById('mainHeading');
-        const subText = document.getElementById('subText');
 
-        // Funktion für den Ripple-Effekt beim Klicken auf den Button
+        // Function for the ripple effect on button click
         discordButton.addEventListener('click', function(e) {
-            // Erstelle ein neues Span-Element für den Ripple
+            // Log to console to confirm click is registered
+            console.log('Discord button clicked!');
+
+            // Create a new span element for the ripple
             const ripple = document.createElement('span');
             ripple.classList.add('ripple');
 
-            // Berechne die Größe des Ripples basierend auf der größten Dimension des Buttons
+            // Calculate the size of the ripple based on the largest dimension of the button
             const diameter = Math.max(this.clientWidth, this.clientHeight);
             const radius = diameter / 2;
 
-            // Positioniere den Ripple am Klickpunkt
+            // Position the ripple at the click point
             ripple.style.width = ripple.style.height = `${diameter}px`;
-            ripple.style.left = `${e.clientX - this.offsetLeft - radius}px`;
-            ripple.style.top = `${e.clientY - this.offsetTop - radius}px`;
+            ripple.style.left = `${e.clientX - this.getBoundingClientRect().left - radius}px`;
+            ripple.style.top = `${e.clientY - this.getBoundingClientRect().top - radius}px`;
 
-            // Füge den Ripple zum Button hinzu
+            // Append the ripple to the button
             this.appendChild(ripple);
 
-            // Entferne den Ripple nach der Animation, um das DOM sauber zu halten
+            // Remove the ripple after the animation to keep the DOM clean
             ripple.addEventListener('animationend', () => {
                 ripple.remove();
             });
         });
 
-        // Der Typewriter-Effekt für die Überschrift wird hauptsächlich durch CSS-Animationen gesteuert.
-        // Falls du komplexere Textanimationen oder eine Verzögerung basierend auf JavaScript benötigst,
-        // könntest du hier weitere Logik hinzufügen, z.B. das Hinzufügen/Entfernen von Klassen.
-
-        // Beispiel für eine Verzögerung, falls du Elemente erst nach einer bestimmten Zeit einblenden möchtest
-        // (aktuell über CSS animation-delay gelöst, aber als Beispiel für JS-Timing)
+        // Initial console log when the page is fully loaded
         document.addEventListener('DOMContentLoaded', () => {
-            // Hier könnten weitere JS-basierte Animationen oder Logiken starten,
-            // nachdem das DOM vollständig geladen ist.
-            console.log('Seite vollständig geladen und interaktionsbereit!');
+            console.log('Page fully loaded and ready for interaction!');
         });
-
     </script>
 </body>
 </html>
