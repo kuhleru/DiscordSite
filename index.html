@@ -3,47 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord beitreten</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <title>Tritt unserem Discord bei! | Join Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #1a1a2e;
+            --container-bg: #2a2a4a;
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --discord-blue: #7289da;
+            --discord-blue-hover: #677bc4;
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-medium: rgba(0, 0, 0, 0.3);
+            --shadow-heavy: rgba(0, 0, 0, 0.4);
+        }
+
         body {
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #1a1a2e; /* Dunkler Hintergrund */
+            background: var(--bg-color);
             font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            text-align: center;
+            overflow: hidden; /* Verhindert Scrollbalken bei Animationen */
+            position: relative;
+        }
+
+        /* Hintergrund-Animationseffekte */
+        .background-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at top left, var(--container-bg) 0%, transparent 20%),
+                        radial-gradient(circle at bottom right, var(--container-bg) 0%, transparent 20%);
+            background-size: 80% 80%;
+            opacity: 0.1;
+            animation: moveDots 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes moveDots {
+            0% { background-position: 0% 0%, 100% 100%; }
+            100% { background-position: 100% 100%, 0% 0%; }
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10; /* Stellt sicher, dass der Inhalt über den Animationen liegt */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background-color: var(--container-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px var(--shadow-heavy);
+            transform: translateY(0);
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+            opacity: 0; /* Für die Start-Animation */
+            animation: fadeInScale 1s forwards ease-out;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        h1 {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            color: var(--heading-color);
+            font-weight: 900; /* Extra bold */
+            letter-spacing: -1px;
+            opacity: 0; /* Für die Text-Animation */
+            animation: slideInText 0.8s forwards ease-out;
+            animation-delay: 1.2s;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 300; /* Leicht */
+            opacity: 0; /* Für die Text-Animation */
+            animation: slideInText 0.8s forwards ease-out;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes slideInText {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .discord-button {
-            display: inline-block;
-            padding: 20px 40px;
-            font-size: 1.5em; /* Größerer Text für den Button */
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #7289da; /* Discord-Blau */
+            display: inline-flex; /* Für Icon und Text nebeneinander */
+            align-items: center;
+            padding: 18px 35px;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--heading-color);
+            background-color: var(--discord-blue);
             border: none;
-            border-radius: 12px; /* Leicht abgerundeter */
+            border-radius: 12px;
             text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Prominenterer Schatten */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s cubic-bezier(0.3, 0.7, 0.4, 1.5), box-shadow 0.3s ease;
+            box-shadow: 0 8px 25px var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+            opacity: 0; /* Für die Button-Animation */
+            animation: fadeInButton 0.8s forwards ease-out;
+            animation-delay: 1.8s;
+        }
+
+        @keyframes fadeInButton {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .discord-button:hover {
-            background-color: #677bc4; /* Dunkleres Discord-Blau beim Hover */
-            transform: translateY(-4px); /* Deutlicherer Hoch-Effekt */
+            background-color: var(--discord-blue-hover);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 35px var(--shadow-heavy);
         }
 
         .discord-button:active {
-            transform: translateY(0);
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+            transform: translateY(0px) scale(0.98);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            background-color: var(--discord-blue);
+        }
+
+        .discord-button .icon {
+            margin-right: 12px;
+            font-size: 1.5em; /* Icongröße */
+            line-height: 1; /* Vertikale Ausrichtung */
+        }
+
+        /* Glitzer-Effekt für den Button */
+        .discord-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .discord-button:hover::before {
+            left: 100%;
+        }
+
+        /* Responsivität für kleinere Bildschirme */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 0 15px;
+            }
+            h1 {
+                font-size: 2.2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .discord-button {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+            .discord-button .icon {
+                font-size: 1.3em;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="https://discord.gg/9FDgxCzjeu" class="discord-button" target="_blank" rel="noopener noreferrer">
-        Join Discord
-    </a>
+    <div class="background-dots"></div> <div class="content-wrapper">
+        <div class="container" id="mainContainer">
+            <h1>Join my Discord!</h1>
+            <p>I need members to build an amazing community. Be part of something great!</p>
+            <a href="https://discord.gg/9FDgxCzjeu" class="discord-button" target="_blank" rel="noopener noreferrer" id="discordButton">
+                <span class="icon">&#x1F517;</span> Discord beitreten
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Einfache JavaScript-Interaktionen
+        const discordButton = document.getElementById('discordButton');
+        const mainContainer = document.getElementById('mainContainer');
+
+        // Kleine Animation beim Laden der Seite (bereits über CSS gelöst, aber hier könnte man mehr JS-basierte Interaktionen hinzufügen)
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Seite geladen und bereit für Interaktion!');
+            // Beispiel: Eine Klasse hinzufügen, die eine Animation startet, wenn die Seite komplett geladen ist
+            // mainContainer.classList.add('is-loaded');
+        });
+
+        // Feedback beim Klick auf den Button (optional)
+        discordButton.addEventListener('click', (event) => {
+            // event.preventDefault(); // Zum Testen, um den Link nicht sofort zu öffnen
+            console.log('Discord-Button geklickt!');
+
+            // Visuelles Feedback hinzufügen, z.B. eine kurze Klasse, die einen weiteren Bounce auslöst
+            discordButton.classList.add('clicked-effect');
+            setTimeout(() => {
+                discordButton.classList.remove('clicked-effect');
+                // window.open(discordButton.href, '_blank'); // Link manuell öffnen, wenn preventDefault aktiv war
+            }, 300); // Dauer des Effekts
+        });
+    </script>
 </body>
 </html>
